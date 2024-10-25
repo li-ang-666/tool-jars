@@ -280,6 +280,14 @@
                                     <pattern>com.fasterxml.jackson</pattern>
                                     <shadedPattern>com.liang.shaded.com.fasterxml.jackson</shadedPattern>
                                 </relocation>
+                                <relocation>
+                                    <pattern>org.apache</pattern>
+                                    <shadedPattern>com.liang.shaded.org.apache</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>com.google</pattern>
+                                    <shadedPattern>com.liang.shaded.com.google</shadedPattern>
+                                </relocation>
                             </relocations>
                         </configuration>
                     </execution>
