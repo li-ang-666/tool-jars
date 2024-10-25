@@ -7,7 +7,7 @@
     <groupId>com.liang</groupId>
     <artifactId>tool-jars</artifactId>
     <version>1.0</version>
-
+    <dependencyManagement>
     <dependencies>
 
         <!--kafka-->
@@ -247,6 +247,7 @@
             <version>3.1.0</version>
         </dependency>
     </dependencies>
+    </dependencyManagement>
 
     <!--plugin-->
     <build>
