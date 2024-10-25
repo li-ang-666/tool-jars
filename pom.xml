@@ -165,6 +165,8 @@
                                 <!--排除-->
                                 <excludes>
                                     <exclude>com.google.code.findbugs:jsr305</exclude>
+                                    <exclude>com.google.protobuf:*</exclude>
+                                    <exclude>org.apache.commons:*</exclude>
                                     <exclude>log4j:*</exclude>
                                     <exclude>org.slf4j:*</exclude>
                                     <exclude>org.apache.logging.log4j:*</exclude>
@@ -198,11 +200,6 @@
                                 <relocation>
                                     <pattern>com.fasterxml.jackson</pattern>
                                     <shadedPattern>com.liang.shaded.com.fasterxml.jackson</shadedPattern>
-                                </relocation>
-                                <!--google-->
-                                <relocation>
-                                    <pattern>com.google</pattern>
-                                    <shadedPattern>com.liang.shaded.com.google</shadedPattern>
                                 </relocation>
                             </relocations>
                         </configuration>
