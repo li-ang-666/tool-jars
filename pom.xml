@@ -283,6 +283,9 @@
                                 <relocation>
                                     <pattern>org.apache</pattern>
                                     <shadedPattern>com.liang.shaded.org.apache</shadedPattern>
+                                    <excludes>
+                                        <exclude>org.apache.spark</exclude>
+                                    </excludes>
                                 </relocation>
                                 <relocation>
                                     <pattern>com.google</pattern>
