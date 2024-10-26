@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.liang</groupId>
-    <artifactId>tool-jars</artifactId>
+    <artifactId>shaded-jars</artifactId>
     <version>1.0</version>
     <dependencies>
         <!--parquet-->
@@ -36,34 +36,17 @@
             <artifactId>apollo-client</artifactId>
             <version>2.2.0</version>
         </dependency>
-        <!--huawei-->
+        <!--obs-->
         <dependency>
             <groupId>com.huaweicloud</groupId>
             <artifactId>esdk-obs-java-bundle</artifactId>
             <version>3.22.3</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.hadoop</groupId>
-            <artifactId>hadoop-huaweicloud</artifactId>
-            <version>3.1.1-hw-45</version>
-        </dependency>
-        <!--hadoop-->
-        <dependency>
-            <groupId>org.apache.hadoop</groupId>
-            <artifactId>hadoop-client</artifactId>
-            <version>3.1.1</version>
         </dependency>
         <!--hbase-->
         <dependency>
             <groupId>org.apache.hbase</groupId>
             <artifactId>hbase-client</artifactId>
             <version>2.2.3</version>
-        </dependency>
-        <!--kafka-->
-        <dependency>
-            <groupId>org.apache.kafka</groupId>
-            <artifactId>kafka-clients</artifactId>
-            <version>3.2.3</version>
         </dependency>
         <!--canal-->
         <dependency>
@@ -140,12 +123,6 @@
             <artifactId>RoaringBitmap</artifactId>
             <version>1.0.1</version>
         </dependency>
-        <!--hive-jdbc-->
-        <dependency>
-            <groupId>org.apache.hive</groupId>
-            <artifactId>hive-jdbc</artifactId>
-            <version>3.1.0</version>
-        </dependency>
     </dependencies>
     <!--plugin-->
     <build>
@@ -164,9 +141,6 @@
                             <artifactSet>
                                 <!--排除-->
                                 <excludes>
-                                    <exclude>com.google.code.findbugs:jsr305</exclude>
-                                    <exclude>com.google.protobuf:*</exclude>
-                                    <exclude>org.apache.commons:*</exclude>
                                     <exclude>log4j:*</exclude>
                                     <exclude>org.slf4j:*</exclude>
                                     <exclude>org.apache.logging.log4j:*</exclude>
@@ -200,6 +174,20 @@
                                 <relocation>
                                     <pattern>com.fasterxml.jackson</pattern>
                                     <shadedPattern>com.liang.shaded.com.fasterxml.jackson</shadedPattern>
+                                </relocation>
+                                <!--parquet-->
+                                <relocation>
+                                    <pattern>org.apache.parquet</pattern>
+                                    <shadedPattern>com.liang.shaded.org.apache.parquet</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>org.apache.avro</pattern>
+                                    <shadedPattern>com.liang.shaded.org.apache.avro</shadedPattern>
+                                </relocation>
+                                <!--http-->
+                                <relocation>
+                                    <pattern>org.apache.http</pattern>
+                                    <shadedPattern>org.apache.shaded.com.fasterxml.jackson</shadedPattern>
                                 </relocation>
                             </relocations>
                         </configuration>
